@@ -1,10 +1,8 @@
 class ToMdParagraph
 
   def para_notation(chunk)
-    paragraph_deleted = chunk.delete("<p>")
-    slash_deleted = paragraph_deleted.delete("/")
-    slash_deleted
-    binding.pry
+    chunk.slice!(0..2)
+    chunk.slice!(-4..-1)
   end
 
 end
