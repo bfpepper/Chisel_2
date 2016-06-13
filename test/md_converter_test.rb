@@ -7,7 +7,7 @@ class MdConverterTest < Minitest::Test
   def setup
     @converter = MdConverter.new
   end
-
+  
   def test_it_can_create_a_new_class
     assert_instance_of MdConverter, @converter
   end
@@ -22,9 +22,19 @@ class MdConverterTest < Minitest::Test
     assert_equal "This is one\n\nThis is two", @converter.translate(input)
   end
 
-  def test_it_can_convert_italics
+  def test_it_can_convert_bold
     input = "<p><strong>This</strong> is one</p>\n\n<p>This is two</p>"
     assert_equal "**This** is one\n\nThis is two", @converter.translate(input)
+  end
+
+  def test_it_can_convert_italics
+    input =  "<p><em>This</em> is one</p>\n\n<p><strong>This</strong> is two.</p>"
+    assert_equal "*This* is one\n\n**This** is two.", @converter.translate(input)
+  end
+
+  def test_full_integration
+    input = "<h1>This is one.</h3>\n\n<p><em>This</em> is <strong>two</strong>.</p>"
+    assert_equal "#This is one.\n\n*This* is **two**.", @converter.translate(input)
   end
 
 end

@@ -2,6 +2,7 @@ require "./lib/chunk_maker"
 require "./lib/to_md_paragraph"
 require "./lib/to_md_header"
 require "./lib/to_md_bold"
+require "./lib/to_md_italics"
 require "pry"
 
 class MdConverter
@@ -16,6 +17,9 @@ class MdConverter
       end
       if chunk.include?("<strong>")
         ToMdBold.new.bold_notation(chunk)
+      end
+      if chunk.include?("<em>")
+        ToMdItalics.new.italics_notation(chunk)
       end
     end
     chunked_input.join("\n\n")

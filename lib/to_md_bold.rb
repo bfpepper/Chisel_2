@@ -1,9 +1,9 @@
 class ToMdBold
 
   def bold_notation(chunk)
-    binding.pry
-    chunk.delete("<strong>")
-    chunk.delete("</strong>")
+    # binding.pry
+    chunk.sub!("<strong>", "**")
+    chunk.sub!("</strong>", "**")
   end
 
 end

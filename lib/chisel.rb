@@ -1,4 +1,5 @@
 require "./lib/html_converter"
+require "./lib/md_converter"
 
 class Chisel
   input_file = ARGV[0]
