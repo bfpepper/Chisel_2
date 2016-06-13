@@ -1,4 +1,4 @@
-class Italicized
+class ToHtmlItalicized
 
   def italics(chunk)
     while chunk.include?("*")

@@ -1,4 +1,4 @@
-class Headers
+class ToHtmlHeaders
 
   def header_notation(chunk)
     hash_num = chunk.count("#")

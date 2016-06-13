@@ -1,4 +1,4 @@
-class Bold
+class ToHtmlBold
 
   def bold_notation(chunk)
     while chunk.include? "**"

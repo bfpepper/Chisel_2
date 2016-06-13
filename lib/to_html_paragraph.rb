@@ -1,4 +1,4 @@
-class Paragraph
+class ToHtmlParagraph
 
   def para_notation(chunk)
     chunk.insert(0, "<p>")

@@ -1,8 +1,8 @@
 require "./lib/chunk_maker"
-require "./lib/paragraph"
-require "./lib/bold"
-require "./lib/italicized"
-require "./lib/headers"
+require "./lib/to_html_paragraph"
+require "./lib/to_html_bold"
+require "./lib/to_html_italicized"
+require "./lib/to_html_headers"
 require "pry"
 
 class HtmlConverter
@@ -11,16 +11,16 @@ class HtmlConverter
     chunked_input = ChunkMaker.new.chunk(input)
     chunked_input.map do |chunk|
       if chunk.include?("#")
-        Headers.new.header_notation(chunk)
+        ToHtmlHeaders.new.header_notation(chunk)
       # binding.pry
       else
-        Paragraph.new.para_notation(chunk)
+        ToHtmlParagraph.new.para_notation(chunk)
       end
       if chunk.include?("**")
-        Bold.new.bold_notation(chunk)
+        ToHtmlBold.new.bold_notation(chunk)
       end
       if chunk.include?("*")
-        Italicized.new.italics(chunk)
+        ToHtmlItalicized.new.italics(chunk)
         end
     end
     chunked_input.join("\n\n")
