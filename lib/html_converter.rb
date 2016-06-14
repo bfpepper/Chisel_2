@@ -12,7 +12,6 @@ class HtmlConverter
     chunked_input.map do |chunk|
       if chunk.include?("#")
         ToHtmlHeaders.new.header_notation(chunk)
-      # binding.pry
       else
         ToHtmlParagraph.new.para_notation(chunk)
       end

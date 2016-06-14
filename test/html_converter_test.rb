@@ -37,4 +37,9 @@ class ConverterTest < Minitest::Test
     assert_equal "<h3>This is the header.</h3>", @converter.translate(input)
   end
 
+  def test_it_can_convert_headers_and_paragraphs
+    input = "###This is the header.\n\nThis is two."
+    assert_equal "<h3>This is the header.</h3>\n\n<p>This is two.</p>", @converter.translate(input)
+  end
+
 end
